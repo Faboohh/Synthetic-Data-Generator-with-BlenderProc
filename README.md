@@ -198,6 +198,8 @@ After downloading and extracting the ZIP files:
 
 ## Running distraction generator script
 
+Step 1, download the following repository and move the scripts inside your folder since both scripts use the ccTexture dataset.
+
 ```bash
 $ blenderproc run examples/datasets/bop_object_physics_positioning/main_v2.py \
   /data/bpc_datasets ipd resources/cctextures output_main_v2
@@ -205,14 +207,54 @@ $ blenderproc run examples/datasets/bop_object_physics_positioning/main_v2.py \
 
 **Important:** Ensure all file paths are correct. The IPD parameter should target the folder; objects will be selected randomly.
 
-After running the command, two folders with different outputs will be generated. Inside them there will be images containing a background from CC Textures and random objects from the IPD dataset.
+After running the command, two images with different outputs will be generated. Inside them there will be images containing a background from CC Textures and random objects from the IPD dataset.
+Each image will have it's own camera position, the camera position is customizable, by modifying the camera position file. 
+
 
 # Parameters
 
-In this section, some interesting parameters will be explained. Inside the GitHub repository there is a folder with all the necessary data.
+In this section, some interesting parameters will be explained. Inside this GitHub repository there is a folder with all the necessary data.
+
+Step 1 clone the repository
+
+```bash
+$ git clone https://github.com/Faboohh/Synthetic-Data-Generator-with-BlenderProc.git
+```
+
+Step 2 move all the scripts inside your blenderProc environment
+
+
 
 If we follow the official BlenderProc website, we can notice some interesting functionalities, such as adding a plane onto our scene.
 
+### Camera Position
+The camera Position can be passed as an argument, as did in the second script, and its fully customizable. 
+Inside a file you will put 6 coordinates in total
+X, Y, Z axis
+X, Y, Z rotation in radiants so make sure to convert them.
+
+each line is a different camera pose and 2 different images will be outputed.
+
+Inside the Script/sceneCreation folder there is an example camera pose file
+
+### How to add primitive Objects
+
+One of blenderproc's built-in function is the create_primitive(), it takes 2 parameters the first one is the primitive we are adding,
+the second one is the size of that object. Then with the set_location function we set the location of that plane.
+
+This is the list of all the available primitives
+[“CUBE”, “CYLINDER”, “CONE”, “PLANE”, “SPHERE”, “MONKEY”]
+
+
+Lets add a Plane to our scene for example and set the origin as it's location
+
+```python
+# Create floor
+floor = bproc.object.create_primitive("PLANE", scale=[5, 5, 1])
+floor.set_location([0, 0, 0])
+```
+
+As we can see we define the primitive as a Plane with the realitve sizes and then set the location as the origin (X, Y, Z).
 # Troubleshooting
 
 ## Git Installation Error
