@@ -247,7 +247,10 @@ X, Y, Z rotation in radiants so make sure to convert them.
 
 each line is a different camera pose and 2 different images will be outputed.
 
-Inside the Script/sceneCreation folder there is an example camera pose file
+Inside the Script/sceneCreation folder there is an example camera pose file, try to use that
+
+
+**Warning: when adding a custom camera pose make sure there are no blank lines otherwise the program will fail**
 
 ### How to add primitive Objects
 
