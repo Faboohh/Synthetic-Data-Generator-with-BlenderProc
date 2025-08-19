@@ -2,7 +2,7 @@
 ## Synthetic Data Generation for Computer Vision
 **Comprehensive Tutorial**  
 *Date: 2025-08-18*
-[![BlenderProc Version](https://img.shields.io/badge/BlenderProc-2.3.2-blue)](https://blenderproc.org/)
+[![BlenderProc Version](https://img.shields.io/badge/BlenderProc-2.3.2-blue)](https://github.com/DLR-RM/BlenderProc)
 [![Blender Version](https://img.shields.io/badge/Blender-4.2.1-lightblue)](https://www.blender.org/download/)
 [![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey)]()
 
