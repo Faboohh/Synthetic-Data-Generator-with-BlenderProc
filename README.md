@@ -149,16 +149,17 @@ $ blenderproc debug yourfile.py
 
 This allows real-time visualization of script execution and scene construction.
 
-# How to create noise
+# How to create distractions for object detection
 
 ## Prerequisites
 Download the code from the GitHub repository with this command:
 
 ```bash
-$ git clone https://github.com/Faboohh/BlenderprocTutorial.git
+$ git clone https://github.com/Faboohh/Synthetic-Data-Generator-with-BlenderProc.git
 ```
+and leave it there for the moment, we are going to use it later on.
 
-and prepare the following datasets:
+Prepare the following datasets:
 
 ## CC Textures Dataset
 
@@ -193,12 +194,10 @@ After downloading and extracting the ZIP files:
 
 1. Extract both ZIP files  
 2. Move folders from `ipd_models.zip` into the main `ipd` folder  
-3. Download `main_v2.py` from the project repository  
-4. Place `main_v2.py` in `examples/dataset/bop_object_physics_positioning/`
+3. Take the ObjectDetection Script from the repository you cloned
+4. Place it in `examples/dataset/bop_object_physics_positioning/`
 
 ## Running distraction generator script
-
-Step 1, download the following repository and move the scripts inside your folder since both scripts use the ccTexture dataset.
 
 ```bash
 $ blenderproc run examples/datasets/bop_object_physics_positioning/main_v2.py \
@@ -213,15 +212,28 @@ Each image will have it's own camera position, the camera position is customizab
 
 # Parameters
 
-In this section, some interesting parameters will be explained. Inside this GitHub repository there is a folder with all the necessary data.
+In this section, some interesting parameters will be explained. Some of these are use inside the SceneCreation script.
 
-Step 1 clone the repository
+Inside this GitHub repository there is a folder with all the necessary data.
+
+Step 1 clone the repository, if you didnt do it before.
 
 ```bash
 $ git clone https://github.com/Faboohh/Synthetic-Data-Generator-with-BlenderProc.git
 ```
 
-Step 2 move all the scripts inside your blenderProc environment
+Step 2 move the sceneCreation script inside your main blenderProc folder
+
+to run this code you will need:
+1. An Object(Blenderproc supports .obj files)
+2. A camera position file with the camera poses(explained later in this guide)
+3. ccTexture downloaded in your environment
+4. an output dir for the final output
+
+
+```bash
+blenderproc run examples/datasets/bop_object_physics_positioning/blenderProcMain.py --camera examples/resources/camera_positionsCustom.txt --obj resources/personalObjects/home.obj --second_obj resources/personalObjects/table.obj  --texture_dir resources/cctextures/  --output_dir output_main_v2/
+```
 
 
 
